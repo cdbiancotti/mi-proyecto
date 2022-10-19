@@ -1,0 +1,24 @@
+{% extends 'bases/base.html' %}
+
+{% block title %}
+    <title>Mesas</title>
+{% endblock title %}
+
+{% block texto_header %}Lista de Mesas{% endblock texto_header %}
+
+{% block base_contenido %}
+
+{% if object_list %}
+    {% for mesa in object_list %}
+        <li>
+            {{mesa}}
+            <a href={% url 'editar_mesa' mesa.id %}>Editar</a>
+            <a href={% url 'eliminar_mesa' mesa.id %}>Eliminar</a>
+        </li>
+    {% endfor %}
+{% else %}
+    <p>
+        No hay mesas encontradas.
+    </p>
+{% endif %}
+{% endblock base_contenido %}

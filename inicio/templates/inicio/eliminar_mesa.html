@@ -1,0 +1,17 @@
+{% extends 'bases/base.html' %}
+
+{% block title %}
+    <title>Eliminar Mesa</title>
+{% endblock title %}
+
+{% block texto_header %}Eliminar Mesa{% endblock texto_header %}
+
+{% block base_contenido %}
+<form action={% url 'eliminar_mesa' mesa.id %} method="post">
+    {% csrf_token %}
+    <p>
+        Desea eliminar el objecto {{mesa}}??
+    </p>
+    <button>Confirmar</button>
+</form>
+{% endblock base_contenido %}

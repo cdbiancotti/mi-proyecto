@@ -1,0 +1,17 @@
+{% extends 'bases/base.html' %}
+
+{% block title %}
+    <title>Editar Mesa</title>
+{% endblock title %}
+
+{% block texto_header %}Editar Mesa{% endblock texto_header %}
+
+{% block base_contenido %}
+<form action={% url 'editar_mesa' mesa.id %} method="post">
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+    <button>Editar</button>
+</form>
+{% endblock base_contenido %}
